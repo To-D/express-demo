@@ -1,0 +1,28 @@
+{
+  "name": "express-demo",
+  "version": "1.0.0",
+  "description": "A demo for practice Express, supporting basic web app function.",
+  "main": "express-demo.js",
+  "scripts": {
+    "test": "node express-demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/To-D/express-demo.git"
+  },
+  "keywords": [
+    "express",
+    "mysqljs",
+    "node"
+  ],
+  "author": "JaxonLiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/To-D/express-demo/issues"
+  },
+  "homepage": "https://github.com/To-D/express-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
