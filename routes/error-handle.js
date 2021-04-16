@@ -32,7 +32,7 @@ router.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.type('text/plain');
     // res.send(`${err.status} - ${err.message}`);
-    res.render('error', { message: err.stack });
+    res.render('error', { err });
 });
 
 module.exports = router;

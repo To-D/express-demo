@@ -6,6 +6,10 @@ const router = require('./routes/index');
 
 const app = express();
 
+// open the public dir
+app.use(express.static(path.join(__dirname, 'public')))
+
+
 // view engine settings
 // create hbs intance by custom options
 const hbs = exphbs.create({
@@ -18,7 +22,7 @@ const hbs = exphbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-app.enable('view cache');
+// app.enable('view cache');
 
 // routes
 router(app);

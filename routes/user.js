@@ -11,7 +11,8 @@ router.use('/register', function(req, res, next) {
 
 // /user/login
 router.use('/login', function(req, res, next) {
-    res.send('login routes');
+    // res.send('login routes');
+    res.render('login');
 });
 
 module.exports = router;
