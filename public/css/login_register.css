@@ -1,0 +1,58 @@
+.container {
+    /* center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* box-setting */
+    padding: 50px;
+    width: 30%;
+    border: 1px solid grey;
+    box-shadow: 0 0 8px grey;
+    text-align: center;
+}
+
+.inputBox {
+    position: relative;
+    display: block;
+    margin: 20px 0;
+}
+
+input {
+    position: relative;
+    left: 1.5rem;
+    line-height: 1.5rem;
+    width: 90%;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid grey;
+}
+
+input:focus {
+    border-bottom: 2px solid green;
+}
+
+.inputBox i {
+    position: absolute;
+    top: 0.5rem;
+}
+
+button {
+    line-height: 1rem;
+    padding: 0.5rem;
+    background-color: green;
+    color: white;
+    border-radius: 3%;
+    width: 50%;
+    cursor: pointer
+}
+
+a {
+    color: green;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

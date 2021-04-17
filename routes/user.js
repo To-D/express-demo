@@ -5,14 +5,21 @@ const express = require('express');
 const router = express.Router();
 
 // /user/register
-router.use('/register', function(req, res, next) {
-    res.send('register routes');
+router.get('/register', function(req, res, next) {
+    res.render('register');
+});
+
+router.post('/register', function(req, res, next) {
+    res.redirect(303, '/home');
 });
 
 // /user/login
-router.use('/login', function(req, res, next) {
-    // res.send('login routes');
+router.get('/login', function(req, res, next) {
     res.render('login');
+});
+
+router.post('/login', function(req, res, next) {
+    res.redirect(303, '/home');
 });
 
 module.exports = router;
