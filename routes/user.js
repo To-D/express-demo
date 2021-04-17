@@ -15,10 +15,12 @@ router.post('/register', function(req, res, next) {
 
 // /user/login
 router.get('/login', function(req, res, next) {
+    req.session.login = "true";
     res.render('login');
 });
 
 router.post('/login', function(req, res, next) {
+    req.session.login = "true";
     res.redirect(303, '/home');
 });
 

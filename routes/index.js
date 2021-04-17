@@ -1,15 +1,19 @@
-// import routes
-const userRoutes = require('./user.js');
-const errorHandler = require('./error-handle.js');
+const errorHandler = require('./error-handle');
+const userRoute = require('./user');
 
-// using routes
+// Routes to custom pages
 // app is got from express-demo.js
 module.exports = function(app) {
+    // home page
     app.use('/home', function(req, res, next) {
-        res.send("home");
+        if (req.session.login) {
+            res.send(req.session.login);
+        }
+        res.redirect(303, '/user/login');
     });
 
-    app.use('/user', userRoutes);
+    // user
+    app.use('/user', userRoute);
 
     // error-handler, must be the last
     app.use(errorHandler);
