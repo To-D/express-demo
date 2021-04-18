@@ -9,9 +9,11 @@ router.post('/register', userController.register);
 
 // /user/login
 router.get('/login', function(req, res, next) {
-    req.session.login = "true";
     res.render('login');
 });
 router.post('/login', userController.login)
+
+// /user/logout
+router.post('/logout', userController.logout);
 
 module.exports = router;

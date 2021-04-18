@@ -9,7 +9,7 @@ const userController = {
                 throw err;
             }
             // duplicate username
-            if (data.length != 0) {
+            if (data != null && data.length != 0) {
                 return res.send("username duplicated");
             }
 
@@ -31,7 +31,7 @@ const userController = {
                 throw err;
             }
 
-            if (data.length == 0) {
+            if (data == null) {
                 return res.send("无此用户信息");
             }
 
@@ -45,6 +45,13 @@ const userController = {
             // redirect to home page
             res.redirect(303, '/home');
         })
+    },
+
+    logout: function(req, res, next) {
+        if (req.session.username) {
+            delete req.session.username;
+        }
+        res.redirect(303, '/user/login');
     }
 }
 module.exports = userController;
