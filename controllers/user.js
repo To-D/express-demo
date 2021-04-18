@@ -1,18 +1,50 @@
-const user = require("../models/user");
+const User = require("../models/user");
 
-function register(req, res, next) {
-    req.session.username = req.body.username;
-    let username = req.body.username;
-    user.findOne({ username }, function(err, result) {
-        if (err) {
-            console.log(err);
-            throw err;
-        }
-        if (result) {
-            res.send("username duplicated");
-        }
-        res.redirect(303, '/home');
-    });
+const userController = {
+    register: function(req, res, next) {
+        let params = JSON.parse(JSON.stringify(req.body));
+        // whether duplicate
+        User.find({ username: params.username }, function(err, data) {
+            if (err) {
+                throw err;
+            }
+            // duplicate username
+            if (data.length != 0) {
+                return res.send("username duplicated");
+            }
+
+            // not duplicate, store new user into db
+            new User(params).save();
+
+            // set login status
+            req.session.username = params.username;
+
+            // redirect to home page
+            res.redirect(303, '/home');
+        });
+    },
+
+    login: function(req, res, next) {
+        let params = JSON.parse(JSON.stringify(req.body));
+        User.findOne({ username: params.username }, (err, data) => {
+            if (err) {
+                throw err;
+            }
+
+            if (data.length == 0) {
+                return res.send("无此用户信息");
+            }
+
+            if (data.password != params.password) {
+                return res.send("密码有误");
+            }
+
+            // set login status
+            req.session.username = params.username;
+
+            // redirect to home page
+            res.redirect(303, '/home');
+        })
+    }
 }
-
-module.exports = { register };
+module.exports = userController;
