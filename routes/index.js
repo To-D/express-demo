@@ -5,9 +5,10 @@ const userRoute = require('./user');
 // app is got from express-demo.js
 module.exports = function(app) {
     // home page
-    app.use('/home', function(req, res, next) {
-        if (req.session.login) {
-            res.send(req.session.login);
+    app.get('/home', function(req, res, next) {
+        if (req.session.username) {
+            res.send(req.session.username);
+            return;
         }
         res.redirect(303, '/user/login');
     });

@@ -4,7 +4,7 @@
     "description": "A demo for practice Express, supporting basic web app function.",
     "main": "express-demo.js",
     "scripts": {
-        "dev": "node-dev express-demo.js",
+        "dev": "node-dev --notify=false --clear express-demo.js",
         "test": "node express-demo.js"
     },
     "repository": {
@@ -13,8 +13,9 @@
     },
     "keywords": [
         "express",
-        "mysqljs",
-        "node"
+        "mongodb",
+        "node",
+        "handlebars"
     ],
     "author": "JaxonLiu",
     "license": "MIT",
@@ -27,7 +28,7 @@
         "express": "^4.17.1",
         "express-handlebars": "^5.3.0",
         "express-session": "^1.17.1",
-        "mysql": "^2.18.1"
+        "mongoose": "^5.12.4"
     },
     "devDependencies": {
         "node-dev": "^6.7.0"
